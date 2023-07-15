@@ -6,4 +6,4 @@ Create Table users(
 );
 
 INSERT INTO users(username, email, password) VALUES
-    ('Borneo', 'bornakevin1@gmail.com', 'Tehran13!');
+    ('Borneo', 'bornakevin1@gmail.com', 'Teh!');

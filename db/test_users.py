@@ -7,10 +7,7 @@ class TestChat(unittest.TestCase):
 
     def setUp(slef):
         path = "db/test_data.sql"
-        db.exec_sql_file(path)
-    
-    def tearDown(self):
-        path = "db/drop_tables.sql"
+        db.exec_sql_file("db/drop_tables.sql")
         db.exec_sql_file(path)
     
     def test_get_user(self):
@@ -22,3 +19,16 @@ class TestChat(unittest.TestCase):
 
         #analyze
         self.assertEqual(username, user[1], "get_user should have returned " + username + "but returned " + user[1])
+    
+    def test_create_user(self):
+        #setup
+        username = "Hon"
+        email = "hon@gmail.com"
+        password = "Honey"
+
+        #invoke
+        users.create_user(username, email, password)
+        user = users.get_user(username)
+
+        #analyze
+        self.assertEqual(username, user[1], "create_user should have created a " + username + " as a user")
