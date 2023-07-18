@@ -32,3 +32,15 @@ class TestChat(unittest.TestCase):
 
         #analyze
         self.assertEqual(username, user[1], "create_user should have created a " + username + " as a user")
+    
+    def test_create_user_unique_username(self):
+        #setup
+        username = "Borneo"
+        email = "borna@gmail.com"
+        password = "three"
+        
+        #invoke
+        result = users.create_user(username, email, password)
+
+        #analyze
+        self.assertEqual(result, False)

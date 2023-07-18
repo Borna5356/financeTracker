@@ -11,8 +11,12 @@ def get_user(username):
 
 def create_user(username, email, password):
     """
-    Creates a new user in the users table
+    Creates a new user with a unique username in the users table
     """
+    user = get_user(username)
+    if (user != None):
+        return False
     command = "INSERT INTO users(username, email, password) VALUES (%s, %s, %s)"
     values = [username, email, password]
     db.exec_commit(command, values)
+    return True
