@@ -20,3 +20,10 @@ def create_user(username, email, password):
     values = [username, email, password]
     db.exec_commit(command, values)
     return True
+
+def verify_password(username, password):
+    """
+    Verifies that the password that the user used is correct
+    """
+    user = get_user(username)
+    return user[3] == password

@@ -44,3 +44,14 @@ class TestChat(unittest.TestCase):
 
         #analyze
         self.assertEqual(result, False)
+    
+    def test_verify_password_correct(self):
+        #setup
+        username = "Borneo"
+        password = "Teh!"
+
+        #invoke
+        result = users.verify_password(username, password)
+
+        #analyze
+        self.assertEqual(result, True)
